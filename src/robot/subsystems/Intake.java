@@ -1,12 +1,14 @@
 package robot.subsystems;
 
 import robot.RobotMap;
+import simulator.CANJaguar;
 import simulator.DoubleSolenoid;
 import simulator.Subsystem;
 
 public class Intake extends Subsystem {
-	DoubleSolenoid intakeSolenoid = RobotMap.intakeSolenoid;
-
+	private DoubleSolenoid intakeSolenoid = RobotMap.intakeSolenoid;
+	private CANJaguar rollerMotors = RobotMap.rollerMotor;
+	
 	private double currentSpeed = 0.3;
 	private boolean isIntakeDown = true; 
 	private boolean toggleOn=false;
