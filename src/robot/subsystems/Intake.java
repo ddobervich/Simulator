@@ -5,28 +5,28 @@ import simulator.DoubleSolenoid;
 import simulator.Subsystem;
 
 public class Intake extends Subsystem {
-	DoubleSolenoid solenoid = RobotMap.intakeSolenoid;
+	DoubleSolenoid intakeSolenoid = RobotMap.intakeSolenoid;
 
-	public double currentSpeed = 0.3;
-	public boolean isOpen = true; 
-	public boolean toggleOn=false;
+	private double currentSpeed = 0.3;
+	private boolean isIntakeDown = true; 
+	private boolean toggleOn=false;
 
 	public void initDefaultCommand() {
 
 	}
 
-	public void closeClaw() {
-		solenoid.set(RobotMap.close);
-		isOpen = false;
+	public void raiseIntake() {
+		intakeSolenoid.set(RobotMap.close);
+		isIntakeDown = false;
 	}
 
-	public void openClaw() {
-		solenoid.set(RobotMap.open);
-		isOpen = true;
+	public void lowerIntake() {
+		intakeSolenoid.set(RobotMap.open);
+		isIntakeDown = true;
 	}
 
-	public boolean isOpen() {
-		return (solenoid.get()==RobotMap.open);
+	public boolean isIntakeDown() {
+		return isIntakeDown;
 	}
 
 	public void setIntakeRollers() {
