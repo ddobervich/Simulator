@@ -11,10 +11,6 @@ public class Intake extends Subsystem {
 	private boolean isIntakeDown = true; 
 	private boolean toggleOn=false;
 
-	public void initDefaultCommand() {
-
-	}
-
 	public void raiseIntake() {
 		intakeSolenoid.set(RobotMap.close);
 		isIntakeDown = false;
