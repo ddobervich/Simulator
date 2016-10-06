@@ -22,7 +22,10 @@ public class RobotModel {
 	private PVector pos;
 	private float leftSpeed, rightSpeed;
 	private float headingInRadians;
-	private float width, wheelBase;
+	
+	private float width = 2;			// in feet
+	private float wheelBase = 3; 		// in feet
+	
 	private float steerAngle = 0;
 
 	private float elapsedDistLeft = 0;
@@ -37,14 +40,10 @@ public class RobotModel {
 		super();
 		this.simulator = sim;
 		this.pos = new PVector(sim.width / 2, sim.height / 2);
-		this.width = 60;
-		this.wheelBase = 20;
 		this.color = sim.color(255, 0, 0);
 		
 		img = sim.loadImage("../images/robotImage.png");
-		img.resize((int)(img.width*0.1f), (int)(img.height*0.1f));
-		width = img.width;
-		wheelBase = img.height;
+		img.resize((int)(wheelBase*sim.PIXELS_PER_FOOT), (int)(width*sim.PIXELS_PER_FOOT));
 		
 		this.ports = new ArrayList<Integer>();
 		robotModel = this;
