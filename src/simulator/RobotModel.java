@@ -98,6 +98,15 @@ public class RobotModel {
 		this.elapsedDistLeft += simulator.dt()*adjLeftSpeed;
 		this.elapsedDistRight += simulator.dt()*adjRightSpeed;
 	}
+	
+	public void realisticUpdate() {
+	
+		// calculate acceleration on each side
+		
+		// integrate to get velocity
+		
+		// then do regular update with the velocities of both sides
+	}
 
 	public PVector getPos() {
 		return pos;
