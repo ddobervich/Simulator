@@ -1,13 +1,18 @@
 package robot.commands;
 
 import robot.Robot;
+import robot.RobotMap;
 import simulator.Command;
 
+/***
+ * Rotate continuously forever
+ * 
+ * @author David
+ */
 public class ContinuousTurn extends Command {
-	private double turnAngle;
 	
-	public ContinuousTurn(double angle) {
-		this.turnAngle = angle;
+	public ContinuousTurn() {
+	
 	}
 
 	@Override
