@@ -8,8 +8,10 @@ import simulator.Command;
  * Drives a certain distance in inches
  */
 public class DriveDistance extends Command {
-	private double desiredDistance = 0;
-	private double initialDistance;
+	private double desiredDistance = 0;		// encoder reading to stop at
+	private double initialDistance;			// encoder reading at command init
+	private double distance;				// desired desitance
+	
 	// debug constants
 	private int count;
 	
@@ -18,18 +20,23 @@ public class DriveDistance extends Command {
 	 */
 	public DriveDistance(double distance) {
 		requires(Robot.driveTrain);
-		initialDistance = Robot.driveTrain.getAverageDistance();
-		this.desiredDistance = distance + initialDistance;
+		this.distance = distance;
 		this.count = 0;
 	}
 
 	protected void initialize() {
 		RobotMap.debug(2, "move-initialize()");
+	
+		initialDistance = Robot.driveTrain.getAverageDistance();
+		this.desiredDistance = distance + initialDistance;
+		
+		RobotMap.debug(3, "Elapsed dist: " + (Robot.driveTrain.getAverageDistance() - initialDistance) + " : stop dist: " + desiredDistance);
+		
 		Robot.driveTrain.setMotorSpeeds(0.6, 0.6);
 	}
 
 	protected void execute() {
-		
+		RobotMap.debug(3, "Elapsed dist: " + (Robot.driveTrain.getAverageDistance() - initialDistance) + " : stop dist: " + desiredDistance);
 	}
 
 	protected boolean isFinished() {
