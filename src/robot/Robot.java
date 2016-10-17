@@ -20,9 +20,9 @@ public class Robot {
 	}
 
 	public void autonomousInit() {
-		Command autonomousCommand = new DriveFor(2, RobotMap.Direction.FORWARD);
+		Command autonomousCommand = new AutonOne();
 		
-		Scheduler.getInstance().add(autonomousCommand);
+		autonomousCommand.start();
 	}
 
 	/**

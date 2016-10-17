@@ -10,7 +10,7 @@ import simulator.Command;
 public class DriveDistance extends Command {
 	private double desiredDistance = 0;		// encoder reading to stop at
 	private double initialDistance;			// encoder reading at command init
-	private double distance;				// desired desitance
+	private double distance;				// desired distance
 	
 	// debug constants
 	private int count;

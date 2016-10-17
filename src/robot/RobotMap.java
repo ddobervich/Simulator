@@ -14,7 +14,7 @@ import simulator.DoubleSolenoid.Value;
  * floating around.
  */
 public class RobotMap {
-	public static final int debugLevel = 100;
+	public static final int debugLevel = 3;
 
 	// Joysticks
 	public static final int X_AXIS = 0, Y_AXIS = 1, TWIST = 2;
