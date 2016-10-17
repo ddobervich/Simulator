@@ -4,6 +4,7 @@ import robot.RobotMap.Direction;
 import robot.commands.AutonOne;
 import robot.commands.DriveFor;
 import robot.subsystems.DriveTrain;
+import simulator.Command;
 import simulator.Scheduler;
 
 public class Robot {
@@ -19,9 +20,9 @@ public class Robot {
 	}
 
 	public void autonomousInit() {
-			
-		Scheduler.getInstance().add(new DriveFor(2, RobotMap.Direction.FORWARD));
+		Command autonomousCommand = new DriveFor(2, RobotMap.Direction.FORWARD);
 		
+		Scheduler.getInstance().add(autonomousCommand);
 	}
 
 	/**
