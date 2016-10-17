@@ -26,6 +26,9 @@ public class RobotModel {
 	private float width = 2;			// in feet
 	private float wheelBase = 3; 		// in feet
 	
+	private float widthInPixels;
+	private float wheelBaseInPixels;
+	
 	private float steerAngle = 0;
 
 	private float elapsedDistLeft = 0;
@@ -39,11 +42,15 @@ public class RobotModel {
 	private RobotModel(Sim sim) {
 		super();
 		this.simulator = sim;
+		
+		widthInPixels = (float) (width*sim.PIXELS_PER_FOOT);
+		wheelBaseInPixels = (float) (wheelBase*sim.PIXELS_PER_FOOT);
+		
 		this.pos = new PVector(sim.width / 2, sim.height / 2);
 		this.color = sim.color(255, 0, 0);
 		
 		img = sim.loadImage("../images/robotImage.png");
-		img.resize((int)(wheelBase*sim.PIXELS_PER_FOOT), (int)(width*sim.PIXELS_PER_FOOT));
+		img.resize((int)(wheelBaseInPixels), (int)(widthInPixels));
 		
 		this.ports = new ArrayList<Integer>();
 		robotModel = this;
@@ -61,16 +68,16 @@ public class RobotModel {
 
 	public void draw() {
 		simulator.pushMatrix();
-		simulator.translate(pos.x + width / 2, pos.y + wheelBase / 2);
+		simulator.translate(pos.x + wheelBaseInPixels / 2, pos.y + widthInPixels / 2);
 		simulator.rotate(headingInRadians);
-		simulator.translate(-pos.x - width / 2, -pos.y - wheelBase / 2);
+		simulator.translate(-pos.x - wheelBaseInPixels / 2, -pos.y - widthInPixels / 2);
 
 		if (img != null) {
 			simulator.image(img, pos.x, pos.y);
 		} else {
 			simulator.fill(color);
 			simulator.stroke(color);
-			simulator.rect(pos.x, pos.y, width, wheelBase);
+			simulator.rect(pos.x, pos.y, width, wheelBaseInPixels);
 		}
 
 		simulator.popMatrix();
