@@ -19,4 +19,8 @@ public class Timer {
 	public double getTime() {
 		return simulator.getTime() - timeAtReset;
 	}
+
+	public double get() {
+		return getTime();
+	}
 }
