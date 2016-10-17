@@ -83,7 +83,6 @@ public class RobotModel {
 	}
 
 	public void update() {
-		
 		double adjRightSpeed = rightSpeed*MAX_SPEED ;
 		double adjLeftSpeed = leftSpeed*MAX_SPEED;
 		

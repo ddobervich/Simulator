@@ -29,7 +29,7 @@ public class DriveFor extends Command {
 
 	@Override
 	protected void execute() {
-		if (direction == Direction.FORWARD) {
+		if (direction == Direction.BACKWARD) {
 			if (timer.getTime() < seconds *
 			        0.2) { // for the first 20% of time, run the robot at -.5 speed
 				Robot.driveTrain.setMotorSpeeds(-0.3, -0.3);
@@ -42,7 +42,7 @@ public class DriveFor extends Command {
 			} else {
 				Robot.driveTrain.setMotorSpeeds(0, 0);
 			}
-		} else if (direction == Direction.BACKWARD) {
+		} else if (direction == Direction.FORWARD) {
 			if (timer.getTime() < seconds * 0.2) {
 				Robot.driveTrain.setMotorSpeeds(0.3, 0.3);
 			} else if (timer.getTime() >= seconds * 0.2 && timer.getTime() <= seconds * 0.8) {

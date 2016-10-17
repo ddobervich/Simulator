@@ -20,7 +20,7 @@ public class Robot {
 
 	public void autonomousInit() {
 			
-		Scheduler.getInstance().add(new DriveFor(5, RobotMap.Direction.BACKWARD));
+		Scheduler.getInstance().add(new DriveFor(2, RobotMap.Direction.FORWARD));
 		
 	}
 

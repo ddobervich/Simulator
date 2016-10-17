@@ -21,7 +21,6 @@ public class RobotMap {
 
 	// Drivetrain
 	public static boolean driveWithPID;
-	public static DriveTrain robotDrive;
 	public static CANJaguar driveTrainFrontLeft, driveTrainFrontRight, driveTrainRearLeft, driveTrainRearRight;
 	public static final int DRIVETRAIN_FRONT_LEFT_PORT = 0, DRIVETRAIN_FRONT_RIGHT_PORT = 1,
 			DRIVETRAIN_REAR_LEFT_PORT = 3, DRIVETRAIN_REAR_RIGHT_PORT = 6;
